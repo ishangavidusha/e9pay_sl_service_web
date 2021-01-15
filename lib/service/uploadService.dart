@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:http/http.dart' as http;
@@ -20,6 +21,12 @@ class UploadService {
       {
         "name" : name.trim().replaceAll(new RegExp(r"\s+"), ""),
         "phone" : phoneNumber.trim(),
+      }
+    );
+    request.headers.addAll(
+      {
+        "Access-Control-Allow-Origin" : "*",
+        HttpHeaders.contentTypeHeader : "multipart/form-data",
       }
     );
     try {
