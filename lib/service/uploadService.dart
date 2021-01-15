@@ -6,7 +6,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:http/http.dart' as http;
 
 class UploadService {
-  final String initUrl = 'http://35.226.43.228';
+  final String initUrl = 'https://skydreamtours.com';
   Future<Map<String, dynamic>> uploadData(FilePickerResult filePickerResult, String name, String phoneNumber) async {
     http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse('$initUrl/upload'));
     request.files.add(
