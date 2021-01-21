@@ -20,7 +20,9 @@ class KTextInput extends StatelessWidget {
         decoration: InputDecoration(
           icon: icon,
           labelText: text,
-          labelStyle: GoogleFonts.poppins(),
+          labelStyle: GoogleFonts.poppins(
+            color: Colors.black
+          ),
           helperText: helperText,
           helperStyle: GoogleFonts.poppins(),
           hintText: '',

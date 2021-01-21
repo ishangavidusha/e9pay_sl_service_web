@@ -61,7 +61,7 @@ class _FormViewState extends State<FormView> {
               width: devWidth,
               height: devHeight,
               child: Image.asset(
-                'assets/bgImage.jpg',
+                'assets/bgImage2.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -76,39 +76,49 @@ class _FormViewState extends State<FormView> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ClipRect(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(
-                            sigmaX: 16,
-                            sigmaY: 16,
+                            sigmaX: 12,
+                            sigmaY: 12,
                           ),
                           child: Container(
                             width: devWidth > 800 ? 800 : devWidth,
-                            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                             decoration: BoxDecoration(
-                              color: Colors.amberAccent.withOpacity(0.4),
+                              color: Colors.blueAccent.withOpacity(0.4),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
                                 width: 1,
-                                color: Colors.white.withOpacity(0.4),
+                                color: Colors.white.withOpacity(0.3),
                               )
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(
-                                  'E9pay Voice Star',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: devWidth > 800 ? 800 * 0.05 : devWidth * 0.05
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'E9pay Voice Star',
+                                      style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.black,
+                                        fontSize: devWidth > 800 ? 800 * 0.06 : devWidth * 0.06
+                                      ),
+                                    ),
+                                    Text(
+                                      'E9pay Sri Lanka   (1899-6943)',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: devWidth > 800 ? 800 * 0.02 : devWidth * 0.02
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  'E9pay Sri Lanka   (1899-6943)',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: devWidth > 800 ? 800 * 0.02 : devWidth * 0.02
-                                  ),
-                                ),
+                                Image.asset('assets/logo.png', scale: 2,)
                               ],
                             ),
                           ),
@@ -116,16 +126,17 @@ class _FormViewState extends State<FormView> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ClipRect(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(
-                            sigmaX: 16,
-                            sigmaY: 16,
+                            sigmaX: 12,
+                            sigmaY: 12,
                           ),
                           child: Container(
                             width: devWidth > 800 ? 800 : devWidth,
-                            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.3),
                               borderRadius: BorderRadius.circular(20),
@@ -140,7 +151,7 @@ class _FormViewState extends State<FormView> {
                                 KTextInput(
                                   text: 'Name',
                                   helperText: 'Enter Your Name',
-                                  icon: Icon(Icons.person),
+                                  icon: Icon(Icons.person, color: Colors.black,),
                                   textInputType: TextInputType.name,
                                   textEditingController: textEditingControllerName,
                                   onChanged: (value) {
@@ -152,7 +163,7 @@ class _FormViewState extends State<FormView> {
                                 KTextInput(
                                   text: 'Phone Number',
                                   helperText: 'Enter Your E9pay Registerd Phone Number',
-                                  icon: Icon(Icons.phone),
+                                  icon: Icon(Icons.phone, color: Colors.black,),
                                   textInputType: TextInputType.phone,
                                   textEditingController: textEditingControllerPhone,
                                   onChanged: (value) {
@@ -162,11 +173,11 @@ class _FormViewState extends State<FormView> {
                                   },
                                 ),
                                 Container(
-                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
                                   child: Text(
                                     'Video File',
                                     style: GoogleFonts.poppins(
-                                      fontSize: devWidth > 800 ? 800 * 0.03 : devWidth * 0.03
+                                      fontSize: devWidth > 800 ? 800 * 0.04 : devWidth * 0.04
                                     ),
                                   )
                                 ),
@@ -298,7 +309,22 @@ class _FormViewState extends State<FormView> {
                                       SizedBox(
                                         width: 20,
                                       ),
-                                      loading ? CircularProgressIndicator() : Container(),
+                                      loading ? CircularProgressIndicator() : Container(
+                                        child: showDone ? Row(
+                                          children: [
+                                            Icon(Icons.done, color: Colors.blue[900],),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              'Upload Completed!',
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.blue[900],
+                                              ),
+                                            ),
+                                          ],
+                                        ) : Container(),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -309,18 +335,19 @@ class _FormViewState extends State<FormView> {
                       ),
                     ),
                     showDone ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ClipRect(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(
-                            sigmaX: 16,
-                            sigmaY: 16,
+                            sigmaX: 12,
+                            sigmaY: 12,
                           ),
                           child: Container(
                             width: devWidth > 800 ? 800 : devWidth,
-                            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                             decoration: BoxDecoration(
-                              color: Colors.greenAccent.withOpacity(0.4),
+                              color: Colors.greenAccent.withOpacity(0.3),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
                                 width: 1,
