@@ -334,48 +334,6 @@ class _FormViewState extends State<FormView> {
                         ),
                       ),
                     ),
-                    showDone ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(
-                            sigmaX: 12,
-                            sigmaY: 12,
-                          ),
-                          child: Container(
-                            width: devWidth > 800 ? 800 : devWidth,
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.greenAccent.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                width: 1,
-                                color: Colors.white.withOpacity(0.4),
-                              )
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.done,
-                                  size: devWidth > 800 ? 800 * 0.06 : devWidth * 0.06,
-                                  color: Colors.blueAccent,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
-                                  child: Text(
-                                    "Upload Complete!",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: devWidth > 800 ? 800 * 0.05 : devWidth * 0.05
-                                    ),
-                                  ),
-                                )
-                              ],
-                            )
-                          ),
-                        ),
-                      ),
-                    ) : Container(),
                   ],
                 ),
               ),

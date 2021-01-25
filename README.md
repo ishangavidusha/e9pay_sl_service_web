@@ -1,16 +1,11 @@
 # e9pay_sl_service
 
-A new Flutter project.
+File Upload With Flutter & node express + multer
 
-## Getting Started
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9e30c5c9-e2d1-41c8-9c85-101a1e637f53/deploy-status)](https://app.netlify.com/sites/e9paysl/deploys)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Netlify Build: 
+```
+if cd flutter; then git pull && cd ..; else git clone https://github.com/flutter/flutter.git; fi && flutter/bin/flutter config --enable-web && flutter/bin/flutter build web --release
+```
